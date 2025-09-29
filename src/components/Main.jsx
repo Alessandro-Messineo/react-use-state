@@ -1,30 +1,28 @@
 import languages from "./languages";
 import { useState } from "react";
+import Buttons from "./Buttons";
 
 export default function Main() {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(null);
 
     return (
-  
-            <div className="container">
-                {languages.map(language => (
-                    <div key={language.id}>
-                        <button
-                            className="btn"
-                            onClick={() =>
-                                setOpen(currentId =>
-                                     currentId === language.id ? null : language.id
-                                )
-                            }
-                        >
-                            {language.title}
-                        </button>
-                        {open === language.id &&
-                            <div className="description">{language.description}</div>
-                        }
-                    </div>
-                ))}
-            </div>
-   
+        <div className="container">
+            {languages.map(language => (
+                <Buttons
+                    key={language.id}
+                    onClick={() => setOpen(open?.id === language.id ? null : language)}
+                    title={language.title}
+                />
+
+
+            ))}
+
+            {open && (
+                <div className="description">
+                    <h2>{open.title}</h2>
+                    <p>{open.description}</p>
+                </div>
+            )}
+        </div>
     );
 }
