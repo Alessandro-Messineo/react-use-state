@@ -16,13 +16,16 @@
 }
 
 /* stile main */
-.container{
-  display: flex;
+.container {
   width: 90%;
   margin: 0 auto;
-  gap: 20px;
   padding-top: 50px;
-  
+}
+
+.buttons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 
@@ -38,5 +41,11 @@
 
 .description{
   margin-top: 40px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
 
+p{
+  margin-top: 10px;
 }

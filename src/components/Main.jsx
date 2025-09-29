@@ -7,22 +7,24 @@ export default function Main() {
 
     return (
         <div className="container">
-            {languages.map(language => (
-                <Buttons
-                    key={language.id}
-                    onClick={() => setOpen(open?.id === language.id ? null : language)}
-                    title={language.title}
-                />
+            <div className="buttons-wrapper">
+                {languages.map(language => (
+                    <Buttons
+                        key={language.id}
+                        onClick={() => setOpen(open?.id === language.id ? null : language)}
+                        title={language.title}
+                    />
 
 
-            ))}
+                ))}
 
-            {open && (
-                <div className="description">
-                    <h2>{open.title}</h2>
-                    <p>{open.description}</p>
-                </div>
-            )}
+                {open && (
+                    <div className="description">
+                        <h2>{open.title}</h2>
+                        <p>{open.description}</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
